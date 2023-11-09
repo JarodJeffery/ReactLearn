@@ -1,14 +1,14 @@
 import { CORE_CONCEPTS } from "../../data";
 import CoreConcepts from "./coreConcepts";
+import Section from "../Section.jsx";
 
 export default function CoreConceptsFeture(){
 
     return(
-        <section id="core-concepts">
-          <h2>Core Concepts</h2>
+        <Section id="core-concepts" title="Core Concepts">
           <ul>
             {CORE_CONCEPTS.map((conceptItem) =><CoreConcepts key={conceptItem.title} {...conceptItem}/>)}
           </ul>
-        </section>
+        </Section>
     )
 }

@@ -36,3 +36,5 @@ useState('defualt value');
 return an array of 2 elements
 const [ snapshot, updateFunction] = useSate(0); 
 cause reExection of page with new values
+
+props are not automatically sent as atribute to custome component
