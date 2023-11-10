@@ -36,5 +36,7 @@ useState('defualt value');
 return an array of 2 elements
 const [ snapshot, updateFunction] = useSate(0); 
 cause reExection of page with new values
+when updating state based on previous value always use a setState((newState) => !CurrentState)
+
 
 props are not automatically sent as atribute to custome component
