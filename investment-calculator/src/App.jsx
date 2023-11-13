@@ -12,12 +12,14 @@ function App() {
     duration: 10
   });
 
+  const isValid = userInput.duration > 0;
+  
   function handleChange(newValue, inputId)
   {
       setInput((prevInputs) =>{
           return {
               ...prevInputs,
-              [inputId]: newValue
+              [inputId]: +newValue
           };
       });
   }
@@ -26,7 +28,7 @@ function App() {
     <>
       <Header />
       <UserInput userInput={userInput} onUpdatdeChange = {handleChange}/>
-      <Results input={userInput} />
+      {isValid ? <Results input={userInput} /> : <p className='center'>Invalid Data duration is less than 1</p>}
     </>
   );
 }
