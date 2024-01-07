@@ -1,5 +1,43 @@
 import { useState } from 'react';
-import './AuthInputs.css';
+import { styled } from 'styled-components';
+import Input from './Input.jsx';
+
+const AuthInput = styled.div`
+  width: 100%;
+  max-width: 28rem;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+  background: linear-gradient(180deg, #474232 0%, #28271c 100%);
+  color: white;
+`;
+
+
+const ControlDiv  = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+`;
+
+
+const Button = styled.button`
+  padding: 1rem 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  border-radius: 0.25rem;
+  color: #1f2937;
+  background-color: #f0b322;
+  border-radius: 6px;
+  border: none;
+
+  &:hover {
+    background-color: #f0920e;
+  }
+   
+`;
+
 
 export default function AuthInputs() {
   const [enteredEmail, setEnteredEmail] = useState('');
@@ -22,33 +60,29 @@ export default function AuthInputs() {
   const passwordNotValid = submitted && enteredPassword.trim().length < 6;
 
   return (
-    <div id="auth-inputs">
-      <div className="controls">
-        <p>
-          <label className={`label ${emailNotValid ? 'invalid' : ''}`}>Email</label>
-          <input
+    <AuthInput>
+      <ControlDiv>
+          <Input 
+            label="Email"
             type="email"
-            className={emailNotValid ? 'invalid' : ''}
+            invalid={emailNotValid}
             onChange={(event) => handleInputChange('email', event.target.value)}
           />
-        </p>
-        <p>
-          <label className={`label ${passwordNotValid ? 'invalid' : ''}`}>Password</label>
-          <input
+          <Input
+            label="Password"
             type="password"
-            className={passwordNotValid ? 'invalid' : ''}
+            invalid={passwordNotValid}
             onChange={(event) =>
               handleInputChange('password', event.target.value)
             }
           />
-        </p>
-      </div>
+      </ControlDiv>
       <div className="actions">
         <button type="button" className="text-button">
           Create a new account
         </button>
-        <button className='button' onClick={handleLogin}>Sign In</button>
+        <Button className='button' onClick={handleLogin}>Sign In</Button>
       </div>
-    </div>
+    </AuthInput>
   );
 }
