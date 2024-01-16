@@ -27,6 +27,6 @@ export default function CustomInput({ label, invalid, ...props }){
         <p>
           <Label $invalid ={invalid}>{label}</Label>
           <Input $invalid={invalid} {...props} />
-        </p>
+        </p> 
     );
 };
