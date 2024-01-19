@@ -21,6 +21,7 @@ ref vs state
 ref change does not re-execute component like state
 can uses refs for direct DOM access
 
+
 use state for values reflected in UI
 
 useImperativeHandle(ref , () =>{  //exposes functions to outside components where it is called
@@ -30,3 +31,9 @@ useImperativeHandle(ref , () =>{  //exposes functions to outside components wher
         }
     };
 });
+
+portals
+
+allows redering in diffrent place in document
+
+return CreatePortal (<> Ktml/React </>, document.getElementById());
