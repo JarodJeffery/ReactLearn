@@ -20,10 +20,10 @@ const ResultModal =  forwardRef( function ResultModal({remaningTime, targetTime,
         <dialog className="result-modal" ref ={dialog} onClose={onReset}>
             {userLost && <h2>You Lost</h2>}
             {!userLost && <h2>Your score {score}</h2>}
-            <p>The target time was <strong>{targetTime} second{targetTime > 1 ? 's':''},</strong></p>
+            <p>The target time was <strong>{targetTime} second{targetTime > 1 ? 's':''}, </strong></p>
             <p>you stopped the timer with <strong>{formattedTime} seconds left.</strong></p>
             <form method="dialog" onSubmit={onReset}>
-                <button>Close</button>
+                <button>Close</button> 
             </form>
         </dialog>,
         document.getElementById("modal")
